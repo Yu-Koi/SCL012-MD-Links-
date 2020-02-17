@@ -1,4 +1,29 @@
 {
   "name": "md-links",
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "description": "## Índice",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yu-Koi/SCL012-MD-Links-.git"
+  },
+  "author": "Nerymar Guarnizo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yu-Koi/SCL012-MD-Links-/issues"
+  },
+  "homepage": "https://github.com/Yu-Koi/SCL012-MD-Links-#readme",
+  "dependencies": {
+    "http": "0.0.0",
+    "isurl": "^4.0.1",
+    "markdown-it": "^10.0.0",
+    "marked": "^0.8.0",
+    "node-fetch": "^2.6.0"
+  }
 }
