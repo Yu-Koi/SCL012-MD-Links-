@@ -23,6 +23,7 @@
     "http": "0.0.0",
     "isurl": "^4.0.1",
     "markdown-it": "^10.0.0",
+    "markdown-link-extractor": "^1.2.2",
     "marked": "^0.8.0",
     "node-fetch": "^2.6.0"
   }

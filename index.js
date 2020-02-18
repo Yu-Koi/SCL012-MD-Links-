@@ -3,38 +3,74 @@
 //   // ...
 // };
 
-const path = require('path');
+// const path = require('path');
 const fs = require('fs');
-const  MarkdownIt  = require('markdown-it')();
-const isURL = require('isurl');
+const markdownLinkExtractor = require('markdown-link-extractor')
 
 
 
+// const isURL = require('isurl');
 // const mdLinks = require("md-links");
 // console.log(mdLinks)
 
 
+
+// <------Función para leer archivo md------>
 const readFileMd = (file) =>{
     return new Promise((resolve,reject) =>{
-        fs.readFile(file, function(err, data){
+        fs.readFile(file,'utf-8', function(err, data){
             if(err){
                 reject(err);
             }else{
-                resolve(data.toString());
+                resolve(data);
             }
         })
 
     })
 }
-
 readFileMd('README.md')
 .then(res => console.log(res))
 .catch(err => console.log(err))
 
 
 
-//  resultado  let = MarkdownIt.render ( ' # markdown-it rulezz! ' ) ; 
+// <------Función para leer links en archivo md------>
+const readLinks = (file) =>{
+
+    let links = markdownLinkExtractor(fs.readFileSync(file).toString());
+
+    links.forEach(function (link) {
+    console.log(links);
+});
+
+}
+ readLinks(process.argv[2])
+
+exports.readLinks = readLinks;
 
 
 
-//pruebasssssss
+// <------Función para validar links------>
+const validateLinks = (file) => {
+
+mdLinks("./md-Links/README.md")
+.then(links => {
+//   [{ href, text, file }]
+})
+.catch(console.error);
+
+mdLinks("./md-Links/README.md", { validate: true })
+.then(links => {
+//    [{ href, text, file, status, ok }]
+})
+.catch(console.error);
+
+mdLinks("./md-Links/dir")
+.then(links => {
+//    [{ href, text, file }]
+})
+.catch(console.error);
+
+}
+
+exports.validateLinks = validateLinks;
