@@ -3,10 +3,18 @@
 //   // ...
 // };
 
-// const path = require('path');
+const pathNode = require('path');
 const fs = require('fs');
 const markdownLinkExtractor = require('markdown-link-extractor')
+const fetch = require('fetch');
+const fetchLink = fetch.fetchUrl;
 
+
+let file = process.argv[2]; 
+file = pathNode.resolve(file);
+
+// var MarkdownIt = require('markdown-it')
+// const mdLinks = require("md-links");
 
 
 // const isURL = require('isurl');
@@ -15,18 +23,23 @@ const markdownLinkExtractor = require('markdown-link-extractor')
 
 
 
+// Returns: '.md'
+
 // <------Función para leer archivo md------>
-const readFileMd = (file) =>{
+const readFileMd = (path) =>{
     return new Promise((resolve,reject) =>{
-        fs.readFile(file,'utf-8', function(err, data){
+        if(pathNode.extname(path)!=('.md')){
+            reject("esta ruta no es valida")  
+        }else{
+            fs.readFile(path,'utf-8', (err, data) =>{
             if(err){
                 reject(err);
             }else{
                 resolve(data);
             }
         })
-
-    })
+        }
+    })           
 }
 readFileMd('README.md')
 .then(res => console.log(res))
@@ -36,41 +49,33 @@ readFileMd('README.md')
 
 // <------Función para leer links en archivo md------>
 const readLinks = (file) =>{
-
     let links = markdownLinkExtractor(fs.readFileSync(file).toString());
-
     links.forEach(function (link) {
     console.log(links);
 });
-
 }
  readLinks(process.argv[2])
-
 exports.readLinks = readLinks;
 
 
 
-// <------Función para validar links------>
-const validateLinks = (file) => {
+// <------Función para obtener el validate de los links------>
 
-mdLinks("./md-Links/README.md")
-.then(links => {
-//   [{ href, text, file }]
-})
-.catch(console.error);
+// const validateUrl = (links) =>{
+//     let status;
+//     fetchUrl(links,(error,meta,body) => {
+//         if(meta != undefined){
+//             status= meta.status;
+//             if(status === 200){
+//                 console.log('Its OK' + status + '' + links);
+//             }else{
+//                 console.log('Its BROKEN' + status + '' + links);
+//             }
+//         }
+//     })
+// }
+// validateUrl(process.argv[2])
 
-mdLinks("./md-Links/README.md", { validate: true })
-.then(links => {
-//    [{ href, text, file, status, ok }]
-})
-.catch(console.error);
+// <------Función para obtener el stats de los links------>
 
-mdLinks("./md-Links/dir")
-.then(links => {
-//    [{ href, text, file }]
-})
-.catch(console.error);
 
-}
-
-exports.validateLinks = validateLinks;
