@@ -1,8 +1,11 @@
 
-const index = require('./index.js')
+const readFIleMd = require('./index.js')
 console.log(index);
 
+
 console.log(index.readLinks(process.argv[2]));
+
+// console.log(index.readFileMd(file));
 // console.log(index.validateLinks());
 
 
@@ -20,7 +23,7 @@ console.log(index.readLinks(process.argv[2]));
 // .catch(console.error);
 
 // mdLinks("./md-Links/README.md", { validate: true })
-// .then(links => {c
+// .then(links => {
 //    [{ href, text, file, status, ok }]
 // })
 // .catch(console.error);
