@@ -1,7 +1,9 @@
 
-// module.exports = () => {
-//   // ...
-// };
+module = (file) => {
+    readFileMd(file);
+    readLinks(file); 
+};
+exports.module = module;
 
 const pathNode = require('path');
 const fs = require('fs');
@@ -52,7 +54,7 @@ readFileMd(file)
 .catch(err => {console.log(err)
 exports.readFileMd = readFileMd
 })
-
+// exports.readFileMd = readFileMd;
 
 
 // <------Función para leer links en archivo md------>
@@ -69,7 +71,7 @@ const readLinks = (file) =>{
                 console.error(error)
             } else {
                 // - Imprime el Link
-                console.log(link);
+                console.log(chalk.green(link));
                 
                 // - Imprime el Status Code
                 console.log(statusCode);
@@ -80,7 +82,7 @@ const readLinks = (file) =>{
                 if ((statusCode >= 200) && (statusCode <= 399)) {
                     urlsOk ++;
                     console.log("this link is ok");
-                } else {
+                } if ((statusCode >= 400)){
                     urlsFails ++;
                     console.log("this link is fails");
                 }
@@ -88,12 +90,12 @@ const readLinks = (file) =>{
             
             // - Imprime el reporte de las URLs
             console.log(chalk.blue("URLs OK =" + urlsOk));
-            console.log(chalk.red("URLs Fails = " + urlsFails));
+            console.log(chalk.red("URLs Fails =" + urlsFails));
         })
     });
 }
 readLinks(file)
-exports.readLinks = readLinks;
+// exports.readLinks = readLinks;
 
 
 

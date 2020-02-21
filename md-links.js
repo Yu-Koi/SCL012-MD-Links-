@@ -1,12 +1,12 @@
 
-const readFIleMd = require('./index.js')
-console.log(index);
+const index = require('./index.js')
+// console.log(index);
 
 
-console.log(index.readLinks(process.argv[2]));
+// console.log(index.readLinks(process.argv[2]));
 
 // console.log(index.readFileMd(file));
-// console.log(index.validateLinks());
+console.log(index.module(process.argv[2]));
 
 
 
