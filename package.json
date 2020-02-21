@@ -20,10 +20,14 @@
   },
   "homepage": "https://github.com/Yu-Koi/SCL012-MD-Links-#readme",
   "dependencies": {
+    "chalk": "^3.0.0",
+    "fetch": "^1.1.0",
     "http": "0.0.0",
     "isurl": "^4.0.1",
     "markdown-it": "^10.0.0",
+    "markdown-link-extractor": "^1.2.2",
     "marked": "^0.8.0",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "url-status-code": "^1.1.1"
   }
 }

@@ -1,24 +1,40 @@
 
-const findLinks = () => {
+const readFIleMd = require('./index.js')
+console.log(index);
 
-mdLinks("./md-Links/README.md")
-.then(links => {
+
+console.log(index.readLinks(process.argv[2]));
+
+// console.log(index.readFileMd(file));
+// console.log(index.validateLinks());
+
+
+
+
+
+
+// <------Función global------>
+// const validateLinks = (file) => {
+// return new Promise((resolve,reject))
+// mdLinks("./md-Links/README.md")
+// .then(links => {
 //   [{ href, text, file }]
-})
-.catch(console.error);
+// })
+// .catch(console.error);
 
-mdLinks("./md-Links/README.md", { validate: true })
-.then(links => {
+// mdLinks("./md-Links/README.md", { validate: true })
+// .then(links => {
 //    [{ href, text, file, status, ok }]
-})
-.catch(console.error);
+// })
+// .catch(console.error);
 
-mdLinks("./md-Links/dir")
-.then(links => {
+// mdLinks("./md-Links/dir")
+// .then(links => {
 //    [{ href, text, file }]
-})
-.catch(console.error);
+// })
+// .catch(console.error);
 
-}
+// }
+// validateLinks(process.argv[2])
 
-exports.findLinks = findLinks;
+// exports.validateLinks = validateLinks;
