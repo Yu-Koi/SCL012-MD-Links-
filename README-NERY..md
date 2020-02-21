@@ -44,12 +44,13 @@ node-fetch
 module.exports
 
 
+## PROXIMAS ITERACIONES
 
+En próximas iteraciones se agregara las opciones de --validate y --stats y estadisticas, asi como tambien la creacion de la libreria instalable, pasos para la ## Instalación de la librería y ## Guía de Uso.
+(
 ## Instalación de la librería
-
-## Instalación de la librería
-
 ## Guía de Uso
+)
 
 ## Autor
 Nerymar Guarnizo Carvajal
